@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:xt="http://ns.inria.org/xtiger" xml:lang="en">
+<head>   
+<style>
+filename{font-family:"Bitstream Vera Sans Mono", Courier, monospace;}
+command{font-weight: bold;}
+envar{font-family: "Bitstream Vera Sans Mono", Courier, monospace; font-weight: bold;}
+guimenuitem {font-weight: bold; color:blue;}
+parameter{font-weight: bold;}
+</style>               
+  <!-- Use UTF-8 and avoid the xml protocol declaration at the top for Internet Explorer -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=8;" />   
+  <meta name="description" content="XTiger XML document template" />
+  <meta name="keywords" content="template, XTiger" />
+ <link href="styles/default-style2.css" type="text/css" rel="stylesheet" />
+  <link href="styles/syntax/shCore.css" rel="stylesheet" type="text/css" />
+  <link id="theme" href="styles/syntax/shThemeDefault.css" rel="Stylesheet" type="text/css" />
+  <title>eXist template</title>
+
+  <xt:head version="1.1" templateVersion="1.0" label="book">
+  <xt:use types="text" param="filter=wiki" />
+	<xt:component name="bookinfo">
+      <ul>
+		<li><xt:use types="text" label="productname" param="shape=parent-75px;type=textarea">productname</xt:use></li>
+        <li><xt:use types="text" label="title" param="shape=parent-75px;type=textarea">title</xt:use></li> 
+	    <li><xt:use types="text" label="date" param="shape=parent-75px;type=textarea">date</xt:use></li>
+        <xt:repeat minOccurs="0" maxOccurs="*" label="author">
+        <li><xt:use types="text" label="firstname" param="shape=parent-75px;type=textarea">firstname</xt:use></li>
+		<li><xt:use types="text" label="surname" param="shape=parent-75px;type=textarea">surname</xt:use></li>
+		<xt:repeat minOccurs="0" maxOccurs="*" label="affiliation">
+		<xt:repeat minOccurs="0" maxOccurs="*" label="address">
+		<li><xt:use types="text" label="email" param="shape=parent-75px;type=textarea">email</xt:use></li>
+		</xt:repeat>
+		</xt:repeat>
+		</xt:repeat>
+      </ul>
+    </xt:component> 
+	<xt:component name="emphasis">
+	<em ><xt:use types="text" label=""  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">para</xt:use></em>
+	</xt:component>
+	
+	<xt:component name="tr">
+	<tr><xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="td para">
+              
+            <xt:use types="td para" param="marker=menu"/>
+			     
+        
+	</xt:repeat></tr>
+	</xt:component> 
+	<xt:component name="td">
+	 <td width="50%"><xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="para screenshot synopsis">
+               
+            <xt:use types="para screenshot synopsis" param="marker=menu"/>
+			   
+        
+	</xt:repeat></td>
+	</xt:component> 
+	<xt:component name="informaltable">
+<table> <xt:repeat minOccurs="0" maxOccurs="*" label="tgroup">	
+<tbody>	<xt:repeat minOccurs="0" maxOccurs="*" label="tbody">
+                    
+	<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="tr td">
+              
+            <xt:use types="tr td" param="marker=menu"/>
+			  
+        
+	</xt:repeat>
+	 
+	</xt:repeat>
+	</tbody></xt:repeat>
+	 </table>
+               
+	</xt:component> 
+	<xt:component name="screenshot">
+	<span align="center"><xt:use types="text" handle="div" param="type=input;layout=placed;class=image;filter=imageex" label="graphic" >urcl</xt:use></span>
+	</xt:component> 
+	
+	<xt:component name="para">
+	    <div><xt:use types="text" label=""  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">para</xt:use></div>
+	</xt:component> 
+	<xt:component name="step">
+	
+	    <div><xt:use types="text" label="para"  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">para</xt:use></div>
+			
+	</xt:component> 
+	<xt:component name="procedure">
+		 <xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="para step synopsis">
+            <div class="row">     
+            <xt:use types="para step synopsis" param="marker=menu"/>
+			     </div>
+        </xt:repeat>
+	</xt:component> 
+	
+	<xt:component name="listitem">
+		<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="programlisting para">
+            <div class="row">     
+            <xt:use types="programlisting para" param="marker=menu"/>
+            </div>
+    </xt:repeat>
+	</xt:component>
+	<xt:component name="varlistentry">
+	<h3><xt:use types="text" label="term"  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">para</xt:use></h3>
+	
+	<xt:repeat minOccurs="0" maxOccurs="*" label="listitem">
+	<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="synopsis para">
+            <div class="row">     
+            <xt:use types="synopsis para" param="marker=menu"/>
+            </div>
+    </xt:repeat>
+	</xt:repeat>
+	
+	</xt:component>
+	
+	<xt:component name="abstract">
+	<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="para procedure note example synopsis screenshot variablelist informaltable">
+            <div class="row">     
+            <xt:use types="para procedure note example synopsis screenshot variablelist informaltable" param="marker=menu"/>
+            </div>
+        </xt:repeat>
+	</xt:component> 
+	
+	<xt:component name="variablelist">
+	<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="varlistentry para">
+            <div class="row">     
+            <xt:use types="varlistentry para" param="marker=menu"/>
+            </div>
+    </xt:repeat>
+	</xt:component>
+	
+	<xt:component name="itemizedlist">
+	<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="listitem para">
+            <div class="row">     
+            <xt:use types="listitem para" param="marker=menu"/>
+            </div>
+    </xt:repeat>
+	</xt:component>
+	<xt:component name="synopsis">
+	    <div class="synopsis"><xt:use types="text" label=""  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">para</xt:use></div>
+	</xt:component>
+	<xt:component name="note">
+	<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="itemizedlist para">
+            <div class="row">     
+            <xt:use types="itemizedlist para" param="marker=menu"/>
+            </div>
+    </xt:repeat>
+       
+  	</xt:component>
+	 <xt:component name="programlisting">
+	 <div class="example_content"><div class="screen"><xt:use types="text" label="" param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">title</xt:use></div></div>
+	 </xt:component>
+	 <xt:component name="screen">
+	 <div class="example_content"><div class="screen"><xt:use types="text" label="" param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">title</xt:use></div></div>
+	 </xt:component>
+	<xt:component name="example">
+   	    <div class="example"><h1><xt:use types="text" label="title"  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">title</xt:use></h1>
+	    <xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="programlisting screen">
+            <div class="row">     
+            <xt:use types="programlisting screen" param="marker=menu"/>
+            </div>
+    </xt:repeat>
+		</div>
+	</xt:component>
+
+	<xt:component name="section">
+	    <div><h2><xt:use types="text" label="title"  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">title</xt:use></h2></div>
+        <xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="para procedure note example synopsis screenshot variablelist informaltable programlisting emphasis">
+            <div class="row">     
+            <xt:use types="para procedure note example synopsis screenshot variablelist informaltable programlisting emphasis" param="marker=menu"/>
+            </div>
+        </xt:repeat>
+	</xt:component>
+
+	<xt:component name="chapter">
+        <h1 class="chaptertitle rounded"><xt:use types="text" label="title"  param="shape=parent;type=textarea;layout=float;filter=wiki;wiki_lang=html">title</xt:use></h1>
+		<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="section para abstract">
+            <div class="row">     
+            <xt:use types="section para abstract" param="marker=menu"/>
+            </div>
+        </xt:repeat>
+    </xt:component> 
+  </xt:head>  
+  
+  <!-- AXEL Preview Mode -->
+  <link rel="stylesheet" type="text/css" href="Preview.css" />
+
+  <!-- Place here optional AXEL code for making the template auto-editable -->
+  
+</head>
+<body>
+
+<xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="bookinfo chapter">
+    <div class="row">     
+      <xt:use types="bookinfo chapter" param="marker=menu"/>
+    </div>
+  </xt:repeat>
+</body> 
+</html>

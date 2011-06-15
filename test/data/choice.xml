@@ -1,0 +1,22 @@
+<Tests>
+  <Banana/>
+  <Favourite>
+    <Banana/>
+  </Favourite>
+  <Strawberry>
+    <fruit/>
+  </Strawberry>
+  <Favourite>
+    <Strawberry>
+      <fruit/>
+    </Strawberry>
+  </Favourite>
+  <gamma>
+    <fruit/>
+  </gamma>
+  <Outer>
+    <delta>
+      <fruit/>
+    </delta>
+  </Outer>    
+</Tests>
